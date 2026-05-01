@@ -112,7 +112,7 @@ def _(acs5):
 @app.cell
 def _(acs5, pl):
     # Income Filter
-    acs5.filter(pl.col('concept').str.contains('Income')).unique('concept').sort('concept')
+    acs5.filter(pl.col('concept').str.contains('Veteran')).unique('concept').sort('concept')
     return
 
 
@@ -124,7 +124,7 @@ def _(mo):
     return
 
 
-@app.cell(hide_code=True)
+@app.cell
 def _(load_table):
     subject_df = load_table('https://api.census.gov/data/2024/acs/acs5/subject/variables.json')
     return (subject_df,)
