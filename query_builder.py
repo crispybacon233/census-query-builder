@@ -17,7 +17,15 @@ def _():
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
-    # Load Data
+    # ACS 5 Year
+    """)
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
+    ## Detailed Variable Data
     """)
     return
 
@@ -65,7 +73,7 @@ def _(acs5_2023, acs5_2024):
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
-    # Compare 2024 vs 2023 Data
+    ### Compare 2024 vs 2023 Data
     Check what data overlaps and what data does not overlap
     """)
     return
@@ -103,7 +111,28 @@ def _(acs5):
 
 @app.cell
 def _(acs5, pl):
-    acs5.filter(pl.col('concept').str.contains('Income')).unique('concept')
+    # Income Filter
+    acs5.filter(pl.col('concept').str.contains('Income')).unique('concept').sort('concept')
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
+    ## Subject Table
+    """)
+    return
+
+
+@app.cell(hide_code=True)
+def _(load_table):
+    subject_df = load_table('https://api.census.gov/data/2024/acs/acs5/subject/variables.json')
+    return (subject_df,)
+
+
+@app.cell
+def _(subject_df):
+    subject_df
     return
 
 
