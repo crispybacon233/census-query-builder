@@ -112,7 +112,19 @@ def _(acs5):
 @app.cell
 def _(acs5, pl):
     # Income Filter
-    acs5.filter(pl.col('concept').str.contains('Veteran')).unique('concept').sort('concept')
+    acs5.filter(pl.col('concept').str.contains('Income')).sort('concept')
+    return
+
+
+@app.cell
+def _(acs5, pl):
+    (
+        acs5
+            .filter(
+                pl.col('concept').str.contains('Median Value'),
+            )
+            .sort('concept')
+    )
     return
 
 
@@ -133,11 +145,6 @@ def _(load_table):
 @app.cell
 def _(subject_df):
     subject_df
-    return
-
-
-@app.cell
-def _():
     return
 
 
