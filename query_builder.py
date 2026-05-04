@@ -147,7 +147,7 @@ def _(acs5, pl):
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
-    ## Dashboard Components (2024)
+    ## Dashboard Components (ACS 5 Year 2024)
     """)
     return
 
@@ -306,6 +306,34 @@ def _():
 def _(acs5_2024, mo):
     table = mo.ui.table(acs5_2024, wrapped_columns=['label', 'concept'], page_size=5)
     table
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
+    # ACS 1 Year
+    """)
+    return
+
+
+@app.cell
+def _():
+    return
+
+
+@app.cell
+def _():
+    return
+
+
+@app.cell
+def _():
+    return
+
+
+@app.cell
+def _():
     return
 
 
